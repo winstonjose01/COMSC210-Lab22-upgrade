@@ -156,6 +156,28 @@ public:
 
     }
 
+    void pop_front(){
+        if (!head) return; // Empty list
+
+        Node *temp = head; // Assign temp the current head
+
+        head = temp->next; // Update the head to the next node
+        head->prev = nullptr; // Set the new head's previous pointer to nullptr
+
+        delete temp; // Free memor
+    }
+
+    void pop_back(){
+        if (!tail) return; // Empty list
+
+        Node *temp = tail; // Assign temp to the current tail
+
+        tail = temp->prev; // Update the tail to the previous node
+        tail->next = nullptr; // Set the tail's next pointer to nullptr
+
+        delete temp; // Free memory
+    }
+
     void print() {
         Node* current = head;
         if (!current) return;
