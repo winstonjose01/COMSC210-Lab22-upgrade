@@ -1,3 +1,8 @@
+// COMSC210 | Lab 22 | Winston Jose
+// IDE used: Visual Studio Code
+// Github link: 
+
+
 #include <iostream>
 using namespace std;
 
@@ -76,7 +81,7 @@ public:
         temp->next = newNode;
     }
 
-    void delete_node(int value) {
+    void delete_val(int value) {
         if (!head) return; // Empty list
 
         Node* temp = head;
@@ -98,6 +103,21 @@ public:
         }
 
         delete temp;
+    }
+
+    void delete_pos(int position){
+        // Check if the position is valid (not negative)
+
+
+        int (position < 0){
+            cout << "Position muuse be >= 0."<< endl;
+            return;
+        }
+
+        if (!head){
+            cout << "The list is empty." << endl;
+            return;
+        }
     }
 
     void print() {
