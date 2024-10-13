@@ -1,6 +1,6 @@
 // COMSC210 | Lab 22 | Winston Jose
 // IDE used: Visual Studio Code
-// Github link: 
+// Github link: https://github.com/winstonjose01/COMSC210-Lab22-upgrade  
 
 
 #include <iostream>
@@ -227,6 +227,16 @@ int main() {
     cout << "Deleting position " << pos << "." << endl;
     list.delete_pos(pos-1);
     cout << "\tUpdated list :";
+    list.print();
+
+    cout << "\nDeleting the head of the list: \n";
+    list.pop_front();
+    cout << "\tUpdated list: ";
+    list.print();
+
+    cout << "\nDeleting the tail of the list: \n";
+    list.pop_back();
+    cout << "\tUpdated list: ";
     list.print();
 
     cout << "\nDeleting list, then trying to print.\n";
