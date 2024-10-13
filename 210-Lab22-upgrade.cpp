@@ -107,17 +107,53 @@ public:
 
     void delete_pos(int position){
         // Check if the position is valid (not negative)
-
-
-        int (position < 0){
+        if (position < 0){
             cout << "Position muuse be >= 0."<< endl;
             return;
         }
 
+        // Check if the list is empty
         if (!head){
             cout << "The list is empty." << endl;
             return;
         }
+
+        Node *temp = head;
+
+        // Traverse the list to the desired position
+        for (int i = 0; i < position && temp; i++){
+            temp = temp->next;
+        }
+
+        // Check if position exceeds the list size
+        if (!temp){
+            cout << "Position exceeds list size. Node does not exist" << endl;
+            return;
+        }
+        
+        // Unlink the node from the previouse node
+        if (temp->prev){
+            temp->prev->next = temp->next;
+        }
+        else{
+            head = temp->next; // if deleting the head, updated the head
+            if(head){
+                head->next=nullptr;
+            }
+        }
+
+        // Unlink the node from the next node
+        if(temp->next){
+            temp->next->prev = temp->prev; 
+        }
+        else{
+            tail = tail->prev;
+            if(tail){
+                tail->next=nullptr; // If deleting the tail, update the tail
+            }
+        }
+        delete temp; // Free memory for the deleted node
+
     }
 
     void print() {
