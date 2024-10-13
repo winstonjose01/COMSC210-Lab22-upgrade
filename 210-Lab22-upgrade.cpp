@@ -216,40 +216,58 @@ public:
 
 // Driver program
 int main() {
+    // Seed the random generator
     srand(time(0));
     DoublyLinkedList list;
     int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS;
     int pos;
+    int val;
 
+    // Populate the list with random values within the specified range
     for (int i = 0; i < size; ++i)
         list.push_back(rand() % (MAX_NR-MIN_NR+1) + MIN_NR);
+
+    // Print the list in forward direction
     cout << "List forward: ";
     list.print();
 
+    // Print the list in reverse direction
     cout << "List backward: ";
     list.print_reverse();
 
+    // Prompt user for a position to delete
     cout << "\nWhat position do you want to delete :";
     cin >> pos;
-    cout << "Deleting position " << pos << "." << endl;
+    cout << "Deleting position " << pos << "." << endl; // Delete the node at the specified position
     list.delete_pos(pos-1);
-    cout << "\tUpdated list :";
+    cout << "\tUpdated list :";  // Print the updated list
     list.print();
 
+    // Prompt user for a value to delete
+    cout << "\nWhat value do you want to delete :";
+    cin >> pos;
+    cout << "Deleting value " << val << "." << endl; // Delete the node of a specified value
+    list.delete_pos(val);
+    cout << "\tUpdated list :";  // Print the updated list
+    list.print();
+
+    // Test deleting the head (first node)
     cout << "\nDeleting the head of the list: \n";
-    list.pop_front();
+    list.pop_front();  // Remove the head node
     cout << "\tUpdated list: ";
-    list.print();
+    list.print(); // Print the updated list
 
+    // Test deleting the tail (last node)
     cout << "\nDeleting the tail of the list: \n";
-    list.pop_back();
+    list.pop_back();  // Remove the tail node
     cout << "\tUpdated list: ";
-    list.print();
+    list.print(); // Print the updated list
 
+    // Delete the entire list
     cout << "\nDeleting list, then trying to print.\n";
     list.~DoublyLinkedList();
     cout << "List forward: ";
-    list.print();
+    list.print(); // Prints an empty list
 
     return 0;
 }
