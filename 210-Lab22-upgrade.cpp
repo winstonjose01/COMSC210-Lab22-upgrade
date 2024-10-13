@@ -245,9 +245,9 @@ int main() {
 
     // Prompt user for a value to delete
     cout << "\nWhat value do you want to delete :";
-    cin >> pos;
+    cin >> val;
     cout << "Deleting value " << val << "." << endl; // Delete the node of a specified value
-    list.delete_pos(val);
+    list.delete_val(val);
     cout << "\tUpdated list :";  // Print the updated list
     list.print();
 
