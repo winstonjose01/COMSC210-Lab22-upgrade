@@ -160,9 +160,13 @@ public:
         if (!head) return; // Empty list
 
         Node *temp = head; // Assign temp the current head
-
-        head = temp->next; // Update the head to the next node
-        head->prev = nullptr; // Set the new head's previous pointer to nullptr
+        if (head == tail){  //If the list is only one node
+            head = tail = nullptr; //Update both head and tail null ptr
+        }
+        else{
+            head = temp->next; // Update the head to the next node
+            head->prev = nullptr; // Set the new head's previous pointer to nullptr
+        }
 
         delete temp; // Free memor
     }
@@ -172,6 +176,9 @@ public:
 
         Node *temp = tail; // Assign temp to the current tail
 
+        if (head == tail){   // If the list is only one node
+            head = tail = nullptr;  //Update both head and tail to null ptr
+        }
         tail = temp->prev; // Update the tail to the previous node
         tail->next = nullptr; // Set the tail's next pointer to nullptr
 
